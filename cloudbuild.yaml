@@ -1,4 +1,8 @@
 steps:
   - id: "Teste unitário"
     name: 'golang'
-    args: ['go', 'test']
+    args: ['go', 'test', './src']
+
+  - id: "Build image"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/devops-go-e1:latest', '.']
